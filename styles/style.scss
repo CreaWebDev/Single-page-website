@@ -1,0 +1,196 @@
+@import "vars";
+@import "mixins";
+@import "layout";
+
+
+* {
+    box-sizing: border-box;
+    font-family: $font-body;
+}
+
+h1 {
+    @include var_fonts($font-header, #fff, 86px);
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+@media screen and (min-width: 320px) 
+and (max-width: 480px) {
+    h1 {
+        @include var_fonts($font-header, #fff, 24px);
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}
+
+.text-centered {
+    text-align: center;
+    padding-bottom: 50px;
+    line-height: 24px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .text-centered {
+        padding-bottom: 5px;
+        font-size: 12px;
+    }
+}
+
+article.cta {
+    display: flex;
+    flex-direction: row;
+
+    .book {
+        @include cta(#000, #000, rgba(0, 0, 0, 0.6));
+        margin-right: 20px;
+    }
+
+    .see {
+        @include cta(#fff, #fff, rgba(255, 255, 255, 0.2));
+        margin-left: 20px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h4 {
+        @include var_fonts($font-body, #fff, 18px);
+        font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    article.cta {
+
+        .book {
+            @include cta(#000, #000, rgba(0, 0, 0, 0.6), 120px, 20px);
+            margin-right: 5px;
+        }
+
+        .see {
+            @include cta(#fff, #fff, rgba(255, 255, 255, 0.2), 120px, 20px);
+            margin-left: 5px;
+        }
+
+        h4 {
+            @include var_fonts($font-body, #fff, 10px);
+        }
+    }
+}
+
+//THe BOOK NOW button at the reservation
+button.book {
+    color: #fff;
+    @include cta(#cc9900, #cc9900, #cc9900, 250px, 40px);
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    button.book {
+        @include cta(#cc9900, #cc9900, #cc9900, 200px, 30px);
+        font-size: 12px;
+    }
+}
+
+h2.ornament {
+    @include var_fonts($font-header, #cc9900, 32px);
+    background-image: url("../assets/large/Divider_@3x.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    h2.ornament {
+        @include var_fonts($font-header, #cc9900, 20px);
+        padding-bottom: 8px;
+    }
+}
+
+h2.ornament-w {
+    @include var_fonts($font-header, #fff, 24px);
+    background-image: url("data:img/png;base64,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");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+
+@media screen and (min-width: 320px)
+ and (max-width: 480px) {
+    h2.ornament-w {
+        @include var_fonts($font-header, #fff, 20px);
+    }
+}
+
+h3 {
+    @include var_fonts($font-body, #cc9900, 16px);
+    font-weight: bold;
+    border-bottom: 1px solid #cc9900;
+    padding-bottom: 2px;
+
+}
+
+.dish {
+    text-align: left;
+    border-bottom: 1px solid #cc9900;
+    padding-bottom: 2px;
+    min-width: 300px;
+    max-width: 400px;
+}
+@media screen and (min-width: 320px)
+ and (max-width: 480px) {
+    .dish {
+        text-align: left;
+        border-bottom: 1px solid #cc9900;
+        padding-bottom: 2px;
+        min-width: 50px;
+    }
+ }
+
+p.description {
+    @include var_fonts($font-body, #000, 12px);
+}
+
+section.frame {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+//The yellow box for "Special" course
+div.special {
+    display: block;
+    background-color: #cc9900;
+    max-width: 60px;
+    max-height: 20px;
+    @include var_fonts ($font-body, #fff, 12px);
+    text-align: center;
+    padding: 1px;
+
+}
+
+table {
+    display: block;
+    min-width: 350px;
+    padding: 10px;
+}
+@media screen and (min-width: 320px)
+ and (max-width: 480px) {
+    table {
+        min-width: 50px;
+        max-width: 310px;
+        padding: 2px;
+    }
+ }
+
+table.border-orange {
+    display: block;
+    padding: 10px;
+    border: 1px solid #cc9900;
+}
+@media screen and (min-width: 320px)
+ and (max-width: 480px) {
+    table.border-orange {
+        padding: 2px;
+    }
+ }

@@ -1,0 +1,21 @@
+@mixin var_fonts ($font-fam, $color, $size) {
+    font-family: $font-fam;
+    color: $color;
+    font-size: $size;
+}
+
+//for adding the backgrounds
+@mixin background($background-size, $display: flex, $justify-content: center) {
+    background-size: $background-size;
+    display: $display;
+    justify-content: $justify-content;
+}
+
+//For the buttons
+@mixin cta ($fill, $border, $background, $width: 230px, $height: 60px) {
+    width: $width;
+    height: $height;
+    background-color: $fill;
+    border-color: $border;
+    background: $background;
+}
